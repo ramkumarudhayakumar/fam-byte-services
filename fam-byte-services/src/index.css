@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* UI CSS */
+
+/* Add this to your existing CSS file or create a new one */
+
+.hero-section {
+  padding-top: 80px; /* To account for the fixed navbar */
+}
+
+.hexagon {
+  width: 150px;
+  height: 150px;
+  background-color: #0066ff;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.hexagon:hover {
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background-color: #0066ff;
+  border-color: #0066ff;
+}
+
+.btn-primary:hover {
+  background-color: #0052cc;
+  border-color: #0052cc;
+}
+
+.bg-primary {
+  background-color: #0066ff !important;
+}
+
+/* Add any additional custom styles here */

@@ -1,0 +1,66 @@
+.contact-page {
+  position: relative;
+  background-color: #f8f9fa;
+}
+
+.hero-section {
+  padding-top: 80px;
+  background-image: linear-gradient(
+    45deg,
+    #f8f9fa 25%,
+    #ffffff 25%,
+    #ffffff 50%,
+    #f8f9fa 50%,
+    #f8f9fa 75%,
+    #ffffff 75%,
+    #ffffff 100%
+  );
+  background-size: 20px 20px;
+}
+
+.contact-form {
+  backdrop-filter: blur(10px);
+}
+
+.consult-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  padding: 10px 20px;
+  border-radius: 25px;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link:hover {
+  color: #0d6efd !important;
+}
+
+.form-control {
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border-color: #0d6efd;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 60px;
+  }
+
+  .contact-form {
+    margin: 0 15px;
+  }
+}

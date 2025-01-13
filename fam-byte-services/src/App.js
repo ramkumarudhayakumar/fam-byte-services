@@ -10,6 +10,7 @@ import Blogs from "./pages/Blogs";
 import GenAICOEx from "./pages/GenAICOEx";
 import { Footer } from "./components/Footer";
 import ContactUs from "./pages/ContactUs";
+import ContactButton from "./ui/ContactButton";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/gen-ai" element={<GenAICOEx />} />
         <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
+      <ContactButton />
       <Footer />
     </Router>
   );

@@ -1,0 +1,142 @@
+.digital-transformation {
+  background: #007bff;
+  overflow: hidden;
+  position: relative;
+}
+
+.digital-transformation::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: var(--background-color-Light);
+  animation: rotate 30s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-text,
+.animated-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.is-visible .animated-text,
+.is-visible .animated-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.is-visible .animated-text.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.is-visible .animated-card.delay-2 {
+  transition-delay: 0.4s;
+}
+.is-visible .animated-card.delay-3 {
+  transition-delay: 0.6s;
+}
+.is-visible .animated-card.delay-4 {
+  transition-delay: 0.8s;
+}
+.is-visible .animated-card.delay-5 {
+  transition-delay: 1s;
+}
+
+.approach-card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0px 2px 15px 5px rgba(0, 0, 0, 0.1),
+    0px 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.approach-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.approach-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(13, 110, 253, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.approach-card:hover::before {
+  opacity: 1;
+}
+
+.card-header {
+  background: transparent;
+  border-bottom: none;
+}
+
+.number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.approach-card:hover .number {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.card-footer {
+  background: transparent;
+  border-top: none;
+}
+
+.btn-link {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.btn-link::after {
+  content: "→";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-link:hover::after {
+  right: -25px;
+  opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  .approach-card {
+    margin-bottom: 1.5rem;
+  }
+}

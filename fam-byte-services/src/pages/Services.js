@@ -38,7 +38,7 @@ function Services() {
 
   return (
     <Layout>
-      <div className="container py-5">
+      <div className="container py-5 mt-5">
         <h1 className="text-center mb-5">Our Services</h1>
         <div className="row g-4">
           {services.map((service, index) => (

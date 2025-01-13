@@ -69,11 +69,11 @@ export default function ContactUs() {
 
   return (
     <Layout>
-      <div className="contact-page">
+      <div className="contact-page ">
         {/* Navigation */}
 
         {/* Hero Section */}
-        <section className="hero-section min-vh-100 d-flex align-items-center">
+        <section className="hero-section min-vh-100 d-flex align-items-center pb-5">
           <div className="container text-center">
             <h1 className="display-3 mb-4">
               LET'S GET <span className="text-primary">TALKING</span>
@@ -152,9 +152,6 @@ export default function ContactUs() {
             </div>
           </div>
         </section>
-
-        {/* Consult Now Button */}
-        <button className="btn btn-primary consult-btn">Consult Now</button>
       </div>
     </Layout>
   );

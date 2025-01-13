@@ -22,15 +22,6 @@
   backdrop-filter: blur(10px);
 }
 
-.consult-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 1000;
-  padding: 10px 20px;
-  border-radius: 25px;
-}
-
 .navbar {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

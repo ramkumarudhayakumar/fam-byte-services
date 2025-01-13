@@ -58,11 +58,6 @@ function Layout({ children }) {
                     Blogs
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/contact-us" className="nav-link">
-                    Contact Us
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>

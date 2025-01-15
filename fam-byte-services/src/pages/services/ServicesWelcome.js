@@ -44,51 +44,49 @@ function ServicesWelcome() {
   }, []);
 
   return (
-    <section>
-      <section className="fambyteServices">
-        <div className="fambyteServices-welcomne-particles">
-          <ParticlesComponent />
+    <section className="fambyteServices">
+      <div className="fambyteServices-backgoround"></div>
+      <div className="fambyteServices-welcomne-particles">
+        <ParticlesComponent />
+      </div>
+      <div className="container">
+        <div className="row min-vh-100 align-items-center">
+          <motion.div
+            className="col-12 text-center"
+            animate="visible"
+            initial="hidden"
+            viewport={{ once: true }}
+          >
+            <div className="services-welcome-topLoaderParent">
+              <motion.div
+                className="services-welcome-topLoader bg-dark"
+                variants={textLoaderVarinats}
+              ></motion.div>
+              <h1
+                ref={titleRef}
+                className="services-welcome-title fambyteServices-h1Loader"
+              >
+                <span className="text-dark">BLENDING</span>
+                <span className="text-primary">STRATEGY</span>
+                <span className="text-dark">,</span>
+                <br />
+                <span className="text-primary">DESIGN</span>
+                <span className="text-dark">AND</span>
+                <span className="text-primary">INNOVATION</span>
+              </h1>
+            </div>
+            <div className="services-welcome-bottomLoaderParent">
+              <motion.div
+                className="services-welcome-bottomLoader bg-dark"
+                variants={textLoaderVarinats}
+              ></motion.div>
+              <p ref={subtitleRef} className="services-welcome-subtitle mt-4">
+                Leveraging technology and innovation to transform your business.
+              </p>
+            </div>
+          </motion.div>
         </div>
-        <div className="container">
-          <div className="row min-vh-100 align-items-center">
-            <motion.div
-              className="col-12 text-center"
-              animate="visible"
-              initial="hidden"
-              viewport={{ once: true }}
-            >
-              <div className="services-welcome-topLoaderParent">
-                <motion.div
-                  className="services-welcome-topLoader bg-dark"
-                  variants={textLoaderVarinats}
-                ></motion.div>
-                <h1
-                  ref={titleRef}
-                  className="services-welcome-title fambyteServices-h1Loader"
-                >
-                  <span className="text-dark">BLENDING</span>
-                  <span className="text-primary">STRATEGY</span>
-                  <span className="text-dark">,</span>
-                  <br />
-                  <span className="text-primary">DESIGN</span>
-                  <span className="text-dark">AND</span>
-                  <span className="text-primary">INNOVATION</span>
-                </h1>
-              </div>
-              <div className="services-welcome-bottomLoaderParent">
-                <motion.div
-                  className="services-welcome-bottomLoader bg-dark"
-                  variants={textLoaderVarinats}
-                ></motion.div>
-                <p ref={subtitleRef} className="services-welcome-subtitle mt-4">
-                  Leveraging technology and innovation to transform your
-                  business.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      </div>
     </section>
   );
 }

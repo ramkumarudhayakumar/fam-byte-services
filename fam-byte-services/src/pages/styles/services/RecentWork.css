@@ -1,0 +1,114 @@
+.services-recent-work {
+  background-color: var(--background-color-Light);
+  height: auto;
+}
+
+.services-recent-work .mySwiper {
+  width: 100%;
+  max-width: 800px;
+  padding: 50px 0;
+}
+
+.services-recent-work .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--background-color-Light);
+}
+
+.services-recent-work .card {
+  width: 500px;
+  aspect-ratio: 1/1;
+  border-radius: 18px;
+  box-shadow: 0px 2px 15px 5px rgba(0, 0, 0, 0.1),
+    0px 1px 3px rgba(0, 0, 0, 0.06);
+  border: none;
+  outline: none;
+  background-color: var(--background-color-Light) !important;
+}
+
+.services-recent-work .swiper-button-next,
+.services-recent-work .swiper-button-prev {
+  color: var(--background-color-Light);
+  background: rgba(0, 123, 255, 0.8);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.services-recent-work .swiper-button-next:hover,
+.services-recent-work .swiper-button-prev:hover {
+  background: var(--bg-primary);
+  transform: scale(1.1);
+}
+
+.services-recent-work .swiper-button-next::after,
+.services-recent-work .swiper-button-prev::after {
+  font-size: 1.2rem;
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+
+.services-recent-work .text-primary {
+  animation: textGlow 2s infinite;
+}
+
+@media (max-width: 768px) {
+  .services-recent-work .card {
+    width: 400px;
+    aspect-ratio: 1/1 !important;
+  }
+
+  .services-recent-work .card-title {
+    font-size: 1.3rem;
+  }
+
+  .services-recent-work .card-text {
+    font-size: 0.9rem;
+  }
+
+  .services-recent-work .btn {
+    width: 130px !important;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-recent-work .card {
+    width: 300px;
+    aspect-ratio: 1/1 !important;
+  }
+
+  .services-recent-work .card-title {
+    font-size: 1rem;
+  }
+
+  .services-recent-work .card-text {
+    font-size: 0.8rem;
+  }
+
+  .services-recent-work .swiper-button-next,
+  .services-recent-work .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+  }
+
+  .services-recent-work .swiper-button-next::after,
+  .services-recent-work .swiper-button-prev::after {
+    font-size: 1rem;
+  }
+}

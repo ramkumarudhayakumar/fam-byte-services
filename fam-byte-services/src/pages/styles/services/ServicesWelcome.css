@@ -10,12 +10,28 @@
     #ffffff 100%
   );
   background-size: 20px 20px;
-  min-height: 100vh;
+  /* background-image: linear-gradient(to right, #f1f1f1 1px, transparent 1px),
+    linear-gradient(to bottom, #f1f1f1 1px, transparent 1px);
+  background-size: 20px 20px; */
+  height: auto;
   display: flex;
   align-items: center;
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  z-index: -1;
+}
+
+.fambyteServices-backgoround {
+  background-color: var(--background-color-Light);
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  filter: blur(100px);
+  z-index: -1;
 }
 
 .fambyteServices-welcomne-particles {

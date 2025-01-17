@@ -74,7 +74,7 @@ export default function ParticlesComponent() {
             },
           },
           resize: {
-            delay: 0.5,
+            delay: 0.3,
             enable: true,
           },
         },

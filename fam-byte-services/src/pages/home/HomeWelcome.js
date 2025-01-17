@@ -11,6 +11,7 @@ const textLoaderVarinats = {
   visible: {
     width: "0%",
     opacity: 0.5,
+
     transition: {
       duration: 1,
     },

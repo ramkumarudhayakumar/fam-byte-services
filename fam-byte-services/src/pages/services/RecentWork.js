@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards, Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -9,6 +9,62 @@ import "swiper/css/navigation";
 import "../styles/services/RecentWork.css";
 
 const RecentWork = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 1,
+      }
+    );
+
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
+
+    return () => {
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const heading = document.querySelector(".services-recent-work-movingH1");
+      const rect = heading.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      // Calculate distance from center
+      const distanceX = (e.clientX - centerX) * 0.02;
+      const distanceY = (e.clientY - centerY) * 0.02;
+
+      // Apply transform to heading
+      heading.style.transform = `translate(${distanceX}px, ${distanceY}px)`;
+    };
+
+    const handleMouseLeave = () => {
+      const heading = document.querySelector(".services-recent-work-movingH1");
+      heading.style.transform = "translate(0, 0)";
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
   const projects = [
     {
       title: "BLENDING STRATEGY,",
@@ -39,9 +95,20 @@ const RecentWork = () => {
   return (
     <div className="services-recent-work pb-5 ps-2">
       <div className="container">
-        <h2 className="text-center mb-3 display-4 fw-bold animate__animated animate__fadeInDown">
+        <h2
+          ref={textRef}
+          // variants={textVariants}
+          // initial="hidden"
+          // whileInView="visible"
+          // viewport={{ once: true }}
+          className={`text-center text-dark display-4 animate__animated animate__fadeInDown
+            ${isVisible ? "is-visible" : ""} `}
+        >
           Recent Work
         </h2>
+        <h1 className="services-recent-work-movingH1 text-center">
+          Recent Work
+        </h1>
 
         <Swiper
           effect={"cards"}

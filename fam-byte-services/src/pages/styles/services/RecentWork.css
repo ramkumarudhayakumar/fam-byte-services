@@ -3,6 +3,30 @@
   height: auto;
 }
 
+.services-recent-work-movingH1 {
+  font-size: 8rem;
+  color: var(--color-lit-visible-light);
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: transform 0.2s ease-out;
+}
+
+.services-recent-work .container h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 0.8s ease-out;
+  transition-delay: 100;
+}
+
+.services-recent-work .container h2.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .services-recent-work .mySwiper {
   width: 100%;
   max-width: 800px;
@@ -110,5 +134,36 @@
   .services-recent-work .swiper-button-next::after,
   .services-recent-work .swiper-button-prev::after {
     font-size: 1rem;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .services-recent-work-movingH1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .services-recent-work-movingH1 {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .services-recent-work-movingH1 {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .services-recent-work-movingH1 {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  .services-recent-work-movingH1 {
+    font-size: 8rem;
   }
 }

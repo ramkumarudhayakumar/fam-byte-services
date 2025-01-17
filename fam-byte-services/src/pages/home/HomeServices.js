@@ -22,6 +22,7 @@ const textVariants = {
     opacity: 1,
     transition: {
       duration: 0.8,
+      delay: 0.3,
       ease: "easeOut",
     },
   },
@@ -160,7 +161,7 @@ const HomeServices = () => {
           {services.map((service) => (
             <SwiperSlide key={service.id} className="services-swiper-slide">
               <div className="card">
-                <div className="home-services-section-spiral"></div>
+                {/* <div className="home-services-section-spiral"></div> */}
                 <motion.div className="card-body text-start ps-4 p2-2 py-4">
                   <motion.h5
                     className="card-title fw-bold mb-2"

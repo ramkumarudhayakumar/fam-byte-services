@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 code {
@@ -15,6 +16,7 @@ code {
 :root {
   --background-color-dark: #000000;
   --background-color-Light: #ffffff;
+  --color-lit-visible-light: rgba(239, 239, 239, 1);
   --bg-primary: #007bff;
   --dark-gray-color: #333333;
 }

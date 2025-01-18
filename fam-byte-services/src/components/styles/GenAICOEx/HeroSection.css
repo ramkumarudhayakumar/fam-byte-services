@@ -25,7 +25,7 @@
 }
 
 .hero-section-background {
-  background-color: var(--background-color-Light);
+  background-color: #ffffff;
   position: absolute;
   width: 50%;
   height: 50%;

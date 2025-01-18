@@ -115,7 +115,7 @@ const HomeServices = () => {
   ];
 
   return (
-    <section className="services-section py-5 mb-5">
+    <section className="services-section py-5">
       <div className="container">
         <div className="row mb-2">
           <div className="col-12 text-center">

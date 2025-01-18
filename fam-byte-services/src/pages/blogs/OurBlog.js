@@ -142,7 +142,6 @@ export default function OurBlog() {
 }
 
 function BlogCard({ blog, index, cardRef, cardVisible }) {
-  console.log(index);
   return (
     <div className="col-md-6 col-lg-3">
       <div

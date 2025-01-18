@@ -1,5 +1,5 @@
 .digital-transformation {
-  background: #007bff;
+  background: var(--bg-primary);
   overflow: hidden;
   position: relative;
 }

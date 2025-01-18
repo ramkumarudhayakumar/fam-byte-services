@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "./styles/ContactUs.css";
 import Layout from "../components/Layout";
 import axios from "axios";
+import Toast from "../components/Toast";
 
 export default function ContactUs() {
-  const [formData, setState] = useState({
+  const [formData, setFormData] = useState({
     Name: "",
     Email: "",
     Number: "",
@@ -12,11 +13,17 @@ export default function ContactUs() {
     Message: "",
   });
 
+  const [toast, setToast] = useState(null);
+
   const handleChange = (e) => {
-    setState({
+    setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const showToast = (message, type) => {
+    setToast({ message, type });
   };
 
   const handleSubmit = async (e) => {
@@ -29,34 +36,23 @@ export default function ContactUs() {
       !formData.Subject.trim() ||
       !formData.Message?.trim()
     ) {
-      // setSnackbar({
-      //   ...snackbar,
-      //   open: true,
-      //   snackMessage: "Please Fill All The Details!",
-      //   snackColor: "#B22222",
-      // });
-      console.log("Please Fill All The Details!");
+      showToast("Please Fill All The Details!", "error");
     } else {
       try {
-        await axios.post("http://localhost:3000/send-email", formData);
-        // setSnackbar({
-        //   ...snackbar,
-        //   open: true,
-        //   snackMessage: "Sent Successfully!",
-        //   snackColor: "var( --Text-Light)",
-        // });
-        console.log("Sent Successfully!");
+        await axios.post("http://localhost:8000/send-email", formData);
+        showToast("Sent Successfully!", "success");
+        setFormData({
+          Name: "",
+          Email: "",
+          Number: "",
+          Subject: "",
+          Message: "",
+        });
       } catch (error) {
         console.error(error);
-        // setSnackbar({
-        //   ...snackbar,
-        //   open: true,
-        //   snackMessage: "Failed To Send!",
-        //   snackColor: "#B22222",
-        // });
-        console.log("Failed To Send!");
+        showToast("Failed To Send!", "error");
       } finally {
-        setState({
+        setFormData({
           Name: "",
           Email: "",
           Number: "",
@@ -69,11 +65,15 @@ export default function ContactUs() {
 
   return (
     <Layout>
-      <div className="contact-page ">
-        {/* Navigation */}
-
-        {/* Hero Section */}
-        <section className="hero-section min-vh-100 d-flex align-items-center pb-5">
+      <div className="contact-page">
+        {toast && (
+          <Toast
+            message={toast.message}
+            type={toast.type}
+            onClose={() => setToast(null)}
+          />
+        )}
+        <section className="contact-hero-section min-vh-100 d-flex align-items-center pb-5">
           <div className="container text-center">
             <h1 className="display-3 mb-4">
               LET'S GET <span className="text-primary">TALKING</span>
@@ -82,7 +82,6 @@ export default function ContactUs() {
               We are ready for our next challenge. Reach out to us.
             </p>
 
-            {/* Contact Form */}
             <div className="row justify-content-center">
               <div className="col-md-8 col-lg-6">
                 <form

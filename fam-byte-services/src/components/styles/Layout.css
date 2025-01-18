@@ -18,7 +18,7 @@
   border: none;
   background-color: var(--bg-primary);
   border-radius: 0 0 0 20px;
-  color: var(--background-color-Light) !important;
+  color: #ffffff !important;
   width: 60px;
   aspect-ratio: 1 / 1;
   position: fixed;
@@ -117,7 +117,7 @@
 /* Mobile styles */
 @media (max-width: 991.98px) {
   .layout .navbar-collapse {
-    background: var(--background-color-Light);
+    background: #ffffff;
     padding: 1rem;
     border-radius: 8px;
     margin-top: 1rem;

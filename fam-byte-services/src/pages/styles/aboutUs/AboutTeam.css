@@ -212,16 +212,16 @@
 .AboutTeam .swiper-pagination-bullet {
   width: 15px;
   height: 15px;
-  background-color: #ffffff;
+  background-color: var(--background-color-Light);
 }
 
 .AboutTeam .swiper-pagination-bullet-active {
-  background-color: #ffffff;
+  background-color: var(--background-color-Light);
   /* box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.9); */
 }
 
 .AboutTeam .swiper-pagination-bullet:hover {
-  background-color: #ffffff;
+  background-color: var(--background-color-Light);
 }
 
 .swiper-button-next-custom,
@@ -237,7 +237,7 @@
 
 .swiper-button-next-custom:hover,
 .swiper-button-prev-custom:hover {
-  background-color: #007bff;
+  background-color: var(--bg-primary);
   box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.6),
     0px 2px 4px rgba(255, 255, 255, 0.3);
   transform: scale(1.1);

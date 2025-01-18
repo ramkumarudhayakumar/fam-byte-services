@@ -8,9 +8,9 @@ import SuccessStories from "./pages/SuccessStories";
 import Careers from "./pages/Careers";
 import Blogs from "./pages/Blogs";
 import GenAICOEx from "./pages/GenAICOEx";
-import { Footer } from "./components/Footer";
 import ContactUs from "./pages/ContactUs";
 import ContactButton from "./ui/ContactButton";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -26,8 +26,8 @@ function App() {
         <Route path="/gen-ai" element={<GenAICOEx />} />
         <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
-      <ContactButton />
       <Footer />
+      <ContactButton />
     </Router>
   );
 }

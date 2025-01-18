@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
+import CareerWelcome from "./careers/CareerWelcome";
 
 function Careers() {
   const positions = [
@@ -37,6 +38,7 @@ function Careers() {
 
   return (
     <Layout>
+      <CareerWelcome />
       <div className="container py-5">
         <div className="text-center mb-5">
           <h1>Join Our Team</h1>

@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
+import StoriesWelcome from "./successStories/StoriesWelcome";
 
 function SuccessStories() {
   const stories = [
@@ -31,6 +32,7 @@ function SuccessStories() {
 
   return (
     <Layout>
+      <StoriesWelcome />
       <div className="container py-5">
         <h1 className="text-center mb-5">Success Stories</h1>
         <div className="row g-4">

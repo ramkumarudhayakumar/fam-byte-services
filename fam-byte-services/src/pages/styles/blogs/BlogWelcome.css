@@ -1,0 +1,112 @@
+.BlogWelcome {
+  background-image: linear-gradient(
+    45deg,
+    #f8f9fa 25%,
+    #ffffff 25%,
+    #ffffff 50%,
+    #f8f9fa 50%,
+    #f8f9fa 75%,
+    #ffffff 75%,
+    #ffffff 100%
+  );
+  background-size: 20px 20px;
+  /* background-image: linear-gradient(to right, #f1f1f1 1px, transparent 1px),
+        linear-gradient(to bottom, #f1f1f1 1px, transparent 1px);
+      background-size: 20px 20px; */
+  height: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.BlogWelcome-backgoround {
+  background-color: var(--background-color-Light);
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+.BlogWelcome-welcomne-particles {
+  position: absolute;
+  z-index: -1;
+}
+
+.blog-welcome-topLoaderParent,
+.blog-welcome-bottomLoaderParent {
+  position: relative;
+}
+
+.blog-welcome-bottomLoader {
+  position: absolute;
+  background-color: var(--background-color-dark);
+  height: 100%;
+  z-index: 1;
+  right: 0;
+}
+.blog-welcome-topLoader {
+  position: absolute;
+  height: 110%;
+  z-index: 1;
+  left: 0;
+}
+
+.blog-welcome-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.blog-welcome-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-welcome-title span {
+  display: inline-block;
+}
+
+.text-primary {
+  color: var(--bg-primary) !important;
+}
+
+.blog-welcome-subtitle {
+  font-size: 1.25rem;
+  color: var(--dark-gray-color);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.blog-welcome-subtitle.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos] {
+  pointer-events: none;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .blog-welcome-title {
+    font-size: 2.5rem;
+  }
+
+  .blog-welcome-subtitle {
+    font-size: 1rem;
+  }
+}

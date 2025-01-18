@@ -1,0 +1,91 @@
+.OurBlog {
+  background-color: var(--background-color-Light);
+}
+
+.OurBlog-heading {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 0.8s ease-out;
+  transition-delay: 100;
+}
+
+.OurBlog-heading.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.OurBlog-mousemovingH1 {
+  font-size: 8rem;
+  color: var(--color-lit-visible-light);
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: transform 0.2s ease-out;
+}
+
+.blog-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.6s ease;
+  border: none;
+  outline: none;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background-color: var(--background-color-Light);
+}
+
+.blog-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  transition-delay: 0s !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.blog-card .card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.blog-card .btn {
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover .btn {
+  background-color: var(--bg-primary);
+  color: var(--background-color-Light);
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .OurBlog-mousemovingH1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .OurBlog-mousemovingH1 {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .OurBlog-mousemovingH1 {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .OurBlog-mousemovingH1 {
+    font-size: 6rem;
+  }
+}

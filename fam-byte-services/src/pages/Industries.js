@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
+import IndustriesWelcome from "./industries/IndustriesWelcome";
 
 function Industries() {
   const industries = [
@@ -37,6 +38,7 @@ function Industries() {
 
   return (
     <Layout>
+      <IndustriesWelcome />
       <div className="container py-5">
         <h1 className="text-center mb-5">Industries We Serve</h1>
         <div className="row g-4">

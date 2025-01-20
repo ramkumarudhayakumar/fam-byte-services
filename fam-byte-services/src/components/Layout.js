@@ -18,6 +18,18 @@ function Layout({ children }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navbarBlurHandler = () => {
+    setTimeout(() => {
+      setIsNavOpen(false);
+    }, 0);
+  };
+
+  const responsiveNavbarBlurHandler = () => {
+    setTimeout(() => {
+      setIsResponsiveNavOpen(false);
+    }, 0);
+  };
+
   return (
     <div className="d-flex flex-column min-vh-100 layout">
       <header
@@ -37,6 +49,7 @@ function Layout({ children }) {
               className="navbar-toggler"
               type="button"
               onClick={() => setIsNavOpen(!isNavOpen)}
+              onBlur={navbarBlurHandler}
             >
               <FaBarsStaggered />
             </button>
@@ -44,11 +57,11 @@ function Layout({ children }) {
               className={`collapse navbar-collapse ${isNavOpen ? "show" : ""} `}
             >
               <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink to="/gen-ai" className="nav-link">
                     Gen AI COEx
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <NavLink to="/services" className="nav-link">
                     Services
@@ -90,6 +103,7 @@ function Layout({ children }) {
           className={`navbar-large-screen  ${isScrolled ? "scrolled" : ""}`}
           type="button"
           onClick={() => setIsResponsiveNavOpen(!isNavResponsiveOpen)}
+          onBlur={responsiveNavbarBlurHandler}
         >
           <FaBarsStaggered className="text-light" />
         </button>
@@ -100,11 +114,11 @@ function Layout({ children }) {
             }`}
           >
             <ul className="navbar-nav ms-auto bg-white shadow">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink to="/gen-ai" className="nav-link">
                   Gen AI COEx
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink to="/services" className="nav-link">
                   Services

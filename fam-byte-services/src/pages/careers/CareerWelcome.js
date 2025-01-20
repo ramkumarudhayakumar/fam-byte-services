@@ -6,14 +6,17 @@ import ParticlesComponent from "../../particles/ParticlesComponent";
 
 const textLoaderVarinats = {
   hidden: {
-    width: "100%",
-    opacity: 1,
+    Y: 50,
+    opacity: 0.5,
+    scale: 0.5,
   },
   visible: {
-    width: "0%",
-    opacity: 0.5,
+    y: 0,
+    opacity: 1,
+    scale: 1,
     transition: {
-      duration: 1,
+      type: "spring",
+      siffness: 120,
     },
   },
 };
@@ -57,11 +60,14 @@ function CareerWelcome() {
             initial="hidden"
             viewport={{ once: true }}
           >
-            <div className="career-welcome-topLoaderParent">
-              <motion.div
+            <motion.div
+              className="career-welcome-topLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              <div
                 className="career-welcome-topLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div>
               <h1
                 ref={titleRef}
                 className="career-welcome-title fambyteCareer-h1Loader"
@@ -69,17 +75,20 @@ function CareerWelcome() {
                 <span className="text-dark">CAREERS AT</span>&nbsp;
                 <span className="text-primary">fambyte</span>
               </h1>
-            </div>
-            <div className="career-welcome-bottomLoaderParent">
-              <motion.div
+            </motion.div>
+            <motion.div
+              className="career-welcome-bottomLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              <div
                 className="career-welcome-bottomLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div>
               <p ref={subtitleRef} className="career-welcome-subtitle mt-4">
                 We are engineers, designers, marketers and gamers who are
                 shaping the future digitally
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

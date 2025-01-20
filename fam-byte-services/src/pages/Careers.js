@@ -1,6 +1,10 @@
 import React from "react";
-import Layout from "../components/Layout";
 import CareerWelcome from "./careers/CareerWelcome";
+import Culture from "./careers/Culture";
+import BuildTogether from "./careers/BuildTogether";
+import Intern from "./careers/Intern";
+import Upskill from "./careers/Upskill";
+import SocialMedia from "./careers/SocialMedia";
 
 function Careers() {
   const positions = [
@@ -37,9 +41,14 @@ function Careers() {
   ];
 
   return (
-    <Layout>
+    <>
       <CareerWelcome />
-      <div className="container py-5">
+      <Culture />
+      <BuildTogether />
+      <Intern />
+      <Upskill />
+      <SocialMedia />
+      {/* <div className="container py-5">
         <div className="text-center mb-5">
           <h1>Join Our Team</h1>
           <p className="lead">
@@ -67,8 +76,8 @@ function Careers() {
             </div>
           ))}
         </div>
-      </div>
-    </Layout>
+      </div> */}
+    </>
   );
 }
 

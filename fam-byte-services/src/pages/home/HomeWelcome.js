@@ -5,15 +5,17 @@ import ParticlesComponent from "../../particles/ParticlesComponent";
 
 const textLoaderVarinats = {
   hidden: {
-    width: "100%",
-    opacity: 1,
+    Y: 50,
+    opacity: 0.5,
+    scale: 0.5,
   },
   visible: {
-    width: "0%",
-    opacity: 0.5,
-
+    y: 0,
+    opacity: 1,
+    scale: 1,
     transition: {
-      duration: 1,
+      type: "spring",
+      siffness: 120,
     },
   },
 };
@@ -38,31 +40,37 @@ export default function HomeWelcome() {
           viewport={{ once: true }}
         >
           <div className="herosection-topLoaderParent">
-            <motion.div
-              className="herosection-topLoader bg-primary"
+            {/* <motion.div
+              className="herosection-topLoader"
+              style={{ background: `var(--bg-primary)` }}
               variants={textLoaderVarinats}
-            ></motion.div>
-            <h1 className="display-4 fw-bold mb-4 herosection-h1Loader">
+            ></motion.div> */}
+            <motion.h1
+              className="display-4 fw-bold mb-4 herosection-h1Loader"
+              variants={textLoaderVarinats}
+            >
               BLENDING <span className="text-primary">STRATEGY</span>,
               <br />
               <span className="text-primary">DESIGN</span> AND
               <span className="text-primary">INNOVATION</span>
-            </h1>
+            </motion.h1>
           </div>
           <div className="herosection-bottomLoaderParent">
-            <motion.div
+            {/* <motion.div
               className="herosection-bottomLoader"
               variants={textLoaderVarinats}
-            ></motion.div>
-            <p className="lead mb-4">
+            ></motion.div> */}
+            <motion.p className="lead mb-4" variants={textLoaderVarinats}>
               Leveraging technology and innovation to transform your business.
-            </p>
-            <button
-              className="btn btn-primary btn-lg"
-              onClick={navigataeHandler}
-            >
-              Consult Now
-            </button>
+            </motion.p>
+            <motion.div variants={textLoaderVarinats}>
+              <button
+                className="btn btn-primary btn-lg"
+                onClick={navigataeHandler}
+              >
+                Consult Now
+              </button>
+            </motion.div>
           </div>
         </motion.div>
       </div>

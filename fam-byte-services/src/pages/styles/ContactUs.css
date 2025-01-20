@@ -34,17 +34,43 @@
 }
 
 .nav-link:hover {
-  color: #0d6efd !important;
+  color: var(--bg-primary) !important;
 }
 
 .form-control {
   padding: 0.75rem;
   border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease-in;
+}
+
+.form-control:-webkit-autofill {
+  box-shadow: 0 0 0 30px var(--background-color-Light) inset !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.form-control:-moz-autofill {
+  box-shadow: 0 0 0 1000px var(--background-color-Light) inset !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.form-control:focus:-webkit-autofill {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 0 30px var(--background-color-Light) inset !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.form-control:focus:-moz-autofill {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 0 1000px var(--background-color-Light) inset !important;
+  border: 1px solid #e0e0e0 !important;
 }
 
 .form-control:focus {
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-  border-color: #0d6efd;
+  border-color: var(--bg-primary);
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-out;
 }
 
 @media (max-width: 768px) {

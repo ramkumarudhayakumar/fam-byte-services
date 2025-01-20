@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/Layout";
+
 import "./styles/brands-section.css";
 
 //import css
@@ -11,7 +11,7 @@ import BuildSection from "./home/BuildSection";
 
 function Home() {
   return (
-    <Layout>
+    <>
       {/* Home Welcome */}
       <HomeWelcome />
       {/* Home Services */}
@@ -20,7 +20,7 @@ function Home() {
       <DigitalTransformation />
       {/* Home Build Section */}
       <BuildSection />
-    </Layout>
+    </>
   );
 }
 

@@ -32,26 +32,26 @@
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.is-visible .animated-text,
-.is-visible .animated-card {
+.is-visible.animated-text,
+.is-visible.animated-card {
   opacity: 1;
   transform: translateY(0);
 }
 
-.is-visible .animated-text.delay-1 {
+.is-visible.animated-text.delay-1 {
   transition-delay: 0.2s;
 }
 
-.is-visible .animated-card.delay-2 {
+.is-visible.animated-card.delay-2 {
   transition-delay: 0.4s;
 }
-.is-visible .animated-card.delay-3 {
+.is-visible.animated-card.delay-3 {
   transition-delay: 0.6s;
 }
-.is-visible .animated-card.delay-4 {
+.is-visible.animated-card.delay-4 {
   transition-delay: 0.8s;
 }
-.is-visible .animated-card.delay-5 {
+.is-visible.animated-card.delay-5 {
   transition-delay: 1s;
 }
 

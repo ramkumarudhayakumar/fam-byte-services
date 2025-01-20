@@ -51,10 +51,10 @@
 }
 
 .services-section .swiper-pagination-bullet-active {
-  background: #0d6efd;
+  background: var(--bg-primary);
 }
 
-.home-services-section-spiral {
+/* .home-services-section-spiral {
   background-image: url("../../assets/spiral.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -68,18 +68,18 @@
   z-index: -1;
   opacity: 0;
   transition: transform 3s ease, opacity 0.3s ease;
-}
+} */
 
 .services-section .card {
   display: grid;
   justify-content: center;
   align-items: flex-start;
-  height: 300px;
+  min-height: 300px;
   border: none;
   box-shadow: 0px 2px 15px 5px rgba(0, 0, 0, 0.1),
     0px 1px 3px rgba(0, 0, 0, 0.06);
 
-  margin: 20px 0;
+  margin: 20px 20px;
   transition: transform 0.3s ease, box-shadow 0.2s ease;
 }
 
@@ -90,7 +90,7 @@
     0px 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.services-section .card:hover .home-services-section-spiral {
+/* .services-section .card:hover .home-services-section-spiral {
   transform: translate(-50%, -50%) rotate(90deg);
   opacity: 1;
-}
+} */

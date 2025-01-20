@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/Layout";
 import IndustriesWelcome from "./industries/IndustriesWelcome";
+import IndustriesWork from "./industries/IndustriesWork";
 
 function Industries() {
   const industries = [
@@ -37,29 +37,10 @@ function Industries() {
   ];
 
   return (
-    <Layout>
+    <>
       <IndustriesWelcome />
-      <div className="container py-5">
-        <h1 className="text-center mb-5">Industries We Serve</h1>
-        <div className="row g-4">
-          {industries.map((industry, index) => (
-            <div key={index} className="col-md-6 col-lg-4">
-              <div className="card border-0 shadow-sm h-100">
-                <img
-                  src={industry.image}
-                  className="card-img-top"
-                  alt={industry.name}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{industry.name}</h5>
-                  <p className="card-text">{industry.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Layout>
+      <IndustriesWork />
+    </>
   );
 }
 

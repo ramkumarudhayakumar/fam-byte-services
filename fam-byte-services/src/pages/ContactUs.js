@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles/ContactUs.css";
-import Layout from "../components/Layout";
+
 import axios from "axios";
 import Toast from "../components/Toast";
 
@@ -39,7 +39,10 @@ export default function ContactUs() {
       showToast("Please Fill All The Details!", "error");
     } else {
       try {
-        await axios.post("http://localhost:8000/send-email", formData);
+        await axios.post(
+          "https://fam-byte-services.vercel.app/send-email",
+          formData
+        );
         showToast("Sent Successfully!", "success");
         setFormData({
           Name: "",
@@ -64,7 +67,7 @@ export default function ContactUs() {
   };
 
   return (
-    <Layout>
+    <>
       <div className="contact-page">
         {toast && (
           <Toast
@@ -75,7 +78,7 @@ export default function ContactUs() {
         )}
         <section className="contact-hero-section min-vh-100 d-flex align-items-center pb-5">
           <div className="container text-center">
-            <h1 className="display-3 mb-4">
+            <h1 className="display-3 my-4">
               LET'S GET <span className="text-primary">TALKING</span>
             </h1>
             <p className="lead mb-5">
@@ -152,6 +155,6 @@ export default function ContactUs() {
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   );
 }

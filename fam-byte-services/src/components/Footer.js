@@ -124,14 +124,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="row mt-4 pt-4 border-top border-secondary">
+        <div className="row mt-4 pt-4 mb-2 border-top border-secondary">
           <div className="col-md-6 text-center text-md-start">
             <p className="text-muted mb-0">
-              © {new Date().getFullYear()} fambyte. All rights reserved.
+              © 2024 {new Date().getFullYear()} fambyte. All rights reserved.
             </p>
           </div>
           <div className="col-md-6 text-center text-md-end">
-            <a href="#" className="text-muted text-decoration-none me-3">
+            <a
+              href="/privacy-policy"
+              className="text-muted text-decoration-none me-3"
+            >
               Privacy Policy
             </a>
             <a href="#" className="text-muted text-decoration-none">

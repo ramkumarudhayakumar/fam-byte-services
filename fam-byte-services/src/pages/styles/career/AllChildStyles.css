@@ -1,0 +1,88 @@
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.scale-up {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-up.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+.interns-section-card,
+.upskill-section-card,
+.culture-section-card {
+  transition: all 0.3s ease;
+}
+
+.upskill-section-card:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.interns-section-card:hover,
+.culture-section-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.intern-badge {
+  background-color: var(--background-color-dark);
+}
+
+.intern-applyNow-btn,
+.build-together-section-learnMore {
+  border: 1px solid var(--bg-primary);
+  color: var(--bg-primary);
+}
+
+.intern-applyNow-btn:hover,
+.build-together-section-learnMore:hover {
+  background-color: var(--bg-primary);
+  color: var(--background-color-Light);
+}

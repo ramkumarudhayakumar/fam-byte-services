@@ -7,7 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  /* touch-action: pan-y; */
+  touch-action: pan-y;
+  user-select: none;
 }
 
 code {
@@ -19,7 +20,7 @@ code {
   --background-color-dark: #000000;
   --background-color-Light: #ffffff;
   --color-lit-visible-light: rgba(239, 239, 239, 1);
-  --bg-primary: #007bff;
+  --bg-primary: #5cb338;
   --dark-gray-color: #333333;
 }
 

@@ -10,9 +10,6 @@
     var(--background-color-Light) 100%
   );
   background-size: 20px 20px;
-  /* background-image: linear-gradient(to right, #f1f1f1 1px, transparent 1px),
-    linear-gradient(to bottom, #f1f1f1 1px, transparent 1px);
-  background-size: 20px 20px; */
   height: auto;
   display: flex;
   align-items: center;

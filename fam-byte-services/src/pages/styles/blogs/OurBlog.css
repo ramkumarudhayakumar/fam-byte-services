@@ -19,11 +19,35 @@
 }
 
 .OurBlog-mousemovingH1 {
-  font-size: 8rem;
+  font-size: 5rem;
   color: var(--color-lit-visible-light);
-  text-transform: uppercase;
-  font-weight: 700;
-  transition: transform 0.2s ease-out;
+  text-transform: capitalize;
+  font-weight: 800;
+  background: linear-gradient(
+    90deg,
+    var(--dark-gray-color) 0%,
+    var(--color-lit-visible-light) 50%,
+    var(--dark-gray-color) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.OurBlog-mousemovingH1:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(
+    90deg,
+    var(--color-lit-visible-light) 0%,
+    var(--dark-gray-color) 50%,
+    var(--color-lit-visible-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.1em;
 }
 
 .blog-card {
@@ -65,27 +89,53 @@
   color: var(--background-color-Light);
 }
 
-/* Responsive styles */
+.ourBlog-card-readmore-btn {
+  border: 1px solid var(--bg-primary);
+  color: var(--bg-primary);
+}
+
+.ourBlog-card-readmore-btn:hover {
+  background-color: var(--bg-primary);
+  color: var(--background-color-Light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .OurBlog-mousemovingH1 {
+    font-size: 4.5rem;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 992px) {
+  .OurBlog-mousemovingH1 {
+    font-size: 4rem;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 768px) {
+  .OurBlog-mousemovingH1 {
+    font-size: 3.5rem;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+}
+
 @media (max-width: 576px) {
   .OurBlog-mousemovingH1 {
     font-size: 3rem;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
   }
 }
 
-@media (min-width: 577px) and (max-width: 768px) {
+@media (max-width: 400px) {
   .OurBlog-mousemovingH1 {
-    font-size: 4rem;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 992px) {
-  .OurBlog-mousemovingH1 {
-    font-size: 5rem;
-  }
-}
-
-@media (min-width: 993px) and (max-width: 1200px) {
-  .OurBlog-mousemovingH1 {
-    font-size: 6rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.005em;
+    line-height: 1.5;
   }
 }

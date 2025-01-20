@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import "../styles/DigitalTransformation.css";
 
 const DigitalTransformation = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef(null);
+  const cardRefs = useRef([]);
+  const [cardVisible, setCardVisible] = useState({});
 
   const approaches = [
     {
@@ -39,11 +41,12 @@ const DigitalTransformation = () => {
   ];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    // Observer for the section heading and paragraph
+    const sectionObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
+          setIsSectionVisible(true);
+          sectionObserver.unobserve(entry.target);
         }
       },
       {
@@ -52,28 +55,68 @@ const DigitalTransformation = () => {
     );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+      sectionObserver.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+        sectionObserver.unobserve(sectionRef.current);
       }
     };
   }, []);
 
+  useEffect(() => {
+    // Observer for individual cards
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = entry.target.dataset.index;
+            if (index !== undefined) {
+              setCardVisible((prev) => ({
+                ...prev,
+                [index]: true,
+              }));
+            }
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) cardObserver.observe(ref);
+    });
+
+    return () => {
+      cardRefs.current.forEach((ref) => {
+        if (ref) cardObserver.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
-    <section
-      ref={sectionRef}
-      className={`digital-transformation py-5 ${isVisible ? "is-visible" : ""}`}
-    >
+    <section className="digital-transformation py-5">
       <div className="container">
         <div className="row mb-5">
           <div className="col-lg-8 mx-auto text-center">
-            <h2 className="fw-bold mb-4 animated-text">
+            <h2
+              ref={sectionRef}
+              className={`fw-bold mb-4 animated-text ${
+                isSectionVisible ? "is-visible" : ""
+              }`}
+            >
               Our Digital Transformation Consulting Approach
             </h2>
-            <p className="text-muted lead animated-text delay-1">
+            <p
+              ref={sectionRef}
+              className={`text-muted lead animated-text delay-1 ${
+                isSectionVisible ? "is-visible" : ""
+              }`}
+            >
               We help businesses navigate their digital transformation journey
               with our proven methodology
             </p>
@@ -82,11 +125,18 @@ const DigitalTransformation = () => {
 
         <div className="row g-4 justify-content-center mb-5">
           {approaches.map((approach, index) => (
-            <div key={approach.id} className="col-md-6 col-lg-3">
+            <div
+              key={approach.id}
+              className="col-md-6 col-lg-3"
+              ref={(el) => (cardRefs.current[index] = el)} // Assign ref to the current card
+              data-index={index} // Add index as a data attribute
+            >
               <div
-                className={`approach-card p-4 h-100 bg-white rounded-3 animated-card delay-${
-                  index + 2
-                } ${index % 2 && "mt-sm-5"}`}
+                className={`approach-card p-4 h-100 bg-white rounded-3 ${
+                  cardVisible[index]
+                    ? "animated-card is-visible"
+                    : "animated-card"
+                } delay-${index + 1} ${index % 2 && "mt-sm-5"}`}
               >
                 <div className="card-header d-flex align-items-center mb-3">
                   <span className="number me-3">{approach.number}</span>

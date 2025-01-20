@@ -6,14 +6,17 @@ import ParticlesComponent from "../../particles/ParticlesComponent";
 
 const textLoaderVarinats = {
   hidden: {
-    width: "100%",
-    opacity: 1,
+    Y: 50,
+    opacity: 0.5,
+    scale: 0.5,
   },
   visible: {
-    width: "0%",
-    opacity: 0.5,
+    y: 0,
+    opacity: 1,
+    scale: 1,
     transition: {
-      duration: 1,
+      type: "spring",
+      siffness: 120,
     },
   },
 };
@@ -57,11 +60,14 @@ function ServicesWelcome() {
             initial="hidden"
             viewport={{ once: true }}
           >
-            <div className="services-welcome-topLoaderParent">
-              <motion.div
+            <motion.div
+              className="services-welcome-topLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              {/* <div
                 className="services-welcome-topLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div> */}
               <h1
                 ref={titleRef}
                 className="services-welcome-title fambyteServices-h1Loader"
@@ -74,16 +80,19 @@ function ServicesWelcome() {
                 <span className="text-dark">AND</span>
                 <span className="text-primary">INNOVATION</span>
               </h1>
-            </div>
-            <div className="services-welcome-bottomLoaderParent">
-              <motion.div
+            </motion.div>
+            <motion.div
+              className="services-welcome-bottomLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              {/* <div
                 className="services-welcome-bottomLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div> */}
               <p ref={subtitleRef} className="services-welcome-subtitle mt-4">
                 Leveraging technology and innovation to transform your business.
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

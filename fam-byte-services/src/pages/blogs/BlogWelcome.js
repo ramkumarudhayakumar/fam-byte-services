@@ -6,14 +6,17 @@ import ParticlesComponent from "../../particles/ParticlesComponent";
 
 const textLoaderVarinats = {
   hidden: {
-    width: "100%",
-    opacity: 1,
+    Y: 50,
+    opacity: 0.5,
+    scale: 0.5,
   },
   visible: {
-    width: "0%",
-    opacity: 0.5,
+    y: 0,
+    opacity: 1,
+    scale: 1,
     transition: {
-      duration: 1,
+      type: "spring",
+      siffness: 120,
     },
   },
 };
@@ -57,11 +60,14 @@ function BlogWelcome() {
             initial="hidden"
             viewport={{ once: true }}
           >
-            <div className="blog-welcome-topLoaderParent">
-              <motion.div
+            <motion.div
+              className="blog-welcome-topLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              {/* <div
                 className="blog-welcome-topLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div> */}
               <h1
                 ref={titleRef}
                 className="blog-welcome-title BlogWelcome-h1Loader"
@@ -69,16 +75,19 @@ function BlogWelcome() {
                 <span className="text-dark">INDUSTRY INSIGHTS ON</span>
                 <span className="text-primary">&nbsp;db Blogs.</span>
               </h1>
-            </div>
-            <div className="blog-welcome-bottomLoaderParent">
-              <motion.div
+            </motion.div>
+            <motion.div
+              className="blog-welcome-bottomLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              {/* <div
                 className="blog-welcome-bottomLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div> */}
               <p ref={subtitleRef} className="blog-welcome-subtitle mt-4">
                 Our outlook on all-things-digital, start reading.
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
-// import Laptop from "../../assets/laptop.png";
 
 //import mui
 import LabelImportantIcon from "@mui/icons-material/LabelImportant";
@@ -52,7 +51,7 @@ const HomeServices = () => {
       list: ["Branding", "UX Strategy", "Mobile & Web Design"],
     },
     {
-      id: 4,
+      id: 3,
       title: "MOBILE ENGINEERING",
       description: "Native and cross-platform mobile app development",
       icon: "bi bi-phone",
@@ -65,7 +64,7 @@ const HomeServices = () => {
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: "WEB TECHNOLOGY DEVELOPMENT",
       description: "Building scalable and responsive web applications",
       icon: "bi bi-code-square",
@@ -76,7 +75,7 @@ const HomeServices = () => {
       ],
     },
     {
-      id: 4,
+      id: 5,
       title: "INNOVATION TECHNOLOGY",
       description:
         "Driving future-ready solutions through cutting-edge technologies.",
@@ -90,7 +89,7 @@ const HomeServices = () => {
       ],
     },
     {
-      id: 5,
+      id: 6,
       title: "ENTERPRISE APP DEVELOPMENT",
       description: "Cloud infrastructure and deployment services",
       icon: "bi bi-cloud",
@@ -103,7 +102,7 @@ const HomeServices = () => {
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: "PERFORMANCE ENGINEERING",
       description: "Artificial Intelligence and Machine Learning solutions",
       icon: "bi bi-cpu",
@@ -141,7 +140,7 @@ const HomeServices = () => {
 
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={40}
+          spaceBetween={20}
           slidesPerView={1}
           loop={true}
           autoplay={{

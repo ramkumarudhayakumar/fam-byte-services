@@ -76,7 +76,7 @@ const BuildSection = () => {
   return (
     <section
       ref={sectionRef}
-      className={`build-section py-5 bg-white ${isVisible ? "is-visible" : ""}`}
+      className={`build-section py-5 bg-light ${isVisible ? "is-visible" : ""}`}
     >
       <div className="container">
         <div className="row align-items-center mb-5">

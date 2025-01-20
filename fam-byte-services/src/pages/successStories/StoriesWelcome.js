@@ -6,14 +6,17 @@ import ParticlesComponent from "../../particles/ParticlesComponent";
 
 const textLoaderVarinats = {
   hidden: {
-    width: "100%",
-    opacity: 1,
+    Y: 50,
+    opacity: 0.5,
+    scale: 0.5,
   },
   visible: {
-    width: "0%",
-    opacity: 0.5,
+    y: 0,
+    opacity: 1,
+    scale: 1,
     transition: {
-      duration: 1,
+      type: "spring",
+      siffness: 120,
     },
   },
 };
@@ -57,11 +60,14 @@ function StoriesWelcome() {
             initial="hidden"
             viewport={{ once: true }}
           >
-            <div className="stories-welcome-topLoaderParent">
-              <motion.div
+            <motion.div
+              className="stories-welcome-topLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              {/* <div
                 className="stories-welcome-topLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div> */}
               <h1
                 ref={titleRef}
                 className="stories-welcome-title fambyteStories-h1Loader"
@@ -69,17 +75,20 @@ function StoriesWelcome() {
                 <span className="text-dark">SUCCESS STORIES AT</span>&nbsp;
                 <span className="text-primary">fambyte</span>
               </h1>
-            </div>
-            <div className="stories-welcome-bottomLoaderParent">
-              <motion.div
+            </motion.div>
+            <motion.div
+              className="stories-welcome-bottomLoaderParent"
+              variants={textLoaderVarinats}
+            >
+              {/* <div
                 className="stories-welcome-bottomLoader bg-dark"
                 variants={textLoaderVarinats}
-              ></motion.div>
+              ></div> */}
               <p ref={subtitleRef} className="stories-welcome-subtitle mt-4">
                 We are engineers, designers, marketers and gamers who are
                 shaping the future digitally
               </p>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

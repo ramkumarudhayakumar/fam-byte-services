@@ -133,29 +133,40 @@ export default function AboutTeam() {
   useEffect(() => {
     const handleMouseMove = (e) => {
       const heading = document.querySelector(".AboutTeam-moving-heading");
-      const rect = heading.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+      if (heading) {
+        const rect = heading.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
 
-      // Calculate distance from center
-      const distanceX = (e.clientX - centerX) * 0.02;
-      const distanceY = (e.clientY - centerY) * 0.02;
+        // Reduce the rotation sensitivity
+        const rotateX = (e.clientY - centerY) * 0.02; // Subtle effect
+        const rotateY = (centerX - e.clientX) * 0.02;
 
-      // Apply transform to heading
-      heading.style.transform = `translate(${distanceX}px, ${distanceY}px)`;
+        // Apply a smaller scale for a minimal effect
+        heading.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      }
     };
 
     const handleMouseLeave = () => {
       const heading = document.querySelector(".AboutTeam-moving-heading");
-      heading.style.transform = "translate(0, 0)";
+      if (heading) {
+        heading.style.transform =
+          "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+        heading.style.transition = "transform 0.3s ease-out";
+      }
     };
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
+    const headingElement = document.querySelector(".AboutTeam-moving-heading");
+    if (headingElement) {
+      headingElement.addEventListener("mousemove", handleMouseMove);
+      headingElement.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleMouseLeave);
+      if (headingElement) {
+        headingElement.removeEventListener("mousemove", handleMouseMove);
+        headingElement.removeEventListener("mouseleave", handleMouseLeave);
+      }
     };
   }, []);
 
@@ -172,13 +183,13 @@ export default function AboutTeam() {
       <div className="container-fluid px-3 px-md-4">
         <div className="row mb-3 mb-md-5">
           <div className="col-12">
-            <h2
+            {/* <h2
               ref={textRef}
               className={`testimonial-title text-dark text-center mb-2
             ${isVisible ? "is-visible" : ""}`}
             >
               Our Team
-            </h2>
+            </h2> */}
             <h1 className="AboutTeam-moving-heading text-center">Our Team</h1>
           </div>
         </div>

@@ -35,9 +35,9 @@
   font-weight: 800;
   background: linear-gradient(
     90deg,
-    var(--dark-gray-color) 0%,
-    var(--color-lit-visible-light) 50%,
-    var(--dark-gray-color) 100%
+    var(--color-lit-visible-light) 0%,
+    var(--dark-gray-color) 50%,
+    var(--color-lit-visible-light) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -51,9 +51,9 @@
   transform: translateY(-5px);
   background: linear-gradient(
     90deg,
-    var(--color-lit-visible-light) 0%,
-    var(--dark-gray-color) 50%,
-    var(--color-lit-visible-light) 100%
+    var(--dark-gray-color) 0%,
+    var(--background-color-dark) 50%,
+    var(--dark-gray-color) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

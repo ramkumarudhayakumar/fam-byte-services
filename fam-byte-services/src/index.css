@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  overscroll-behavior: smooth;
   overflow-x: hidden;
   touch-action: pan-y;
   user-select: none;

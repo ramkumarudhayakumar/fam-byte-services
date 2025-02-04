@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/blogs/OurBlog.css";
+import { useScroll, useTransform, useSpring, motion } from "framer-motion";
 
 export default function OurBlog() {
   const cardRefs = useRef([]);
@@ -126,33 +127,27 @@ export default function OurBlog() {
   return (
     <section className="OurBlog">
       <div className="container py-5">
-        {/* <h1
-          ref={h1Ref}
-          className={`text-center OurBlog-heading mb-2 ${
-            h1Visible ? "is-visible" : ""
-          }`}
-        >
-          Our Blog
-        </h1> */}
         <h1
           ref={headingRef}
-          className="text-center OurBlog-mousemovingH1 mb-4 pb-2"
+          className="text-center OurBlog-mousemovingH1 mb-5 pb-2"
           style={{ transition: "transform 0.2s ease-out" }}
         >
           Our Blog
         </h1>
-        <div className="row g-4">
+        <div className="blog-grid">
           {blogs.map((blog, index) => (
             <div
-              className="col-md-6 col-lg-3"
               key={index}
-              ref={(el) => (cardRefs.current[index] = el)} // Assign ref
-              data-index={index} // Store index
+              ref={(el) => (cardRefs.current[index] = el)}
+              data-index={index}
+              className={`blog-card-wrapper mb-5 ${
+                index % 2 === 0 ? "blog-card-even" : "blog-card-odd"
+              }`}
             >
               <BlogCard
                 blog={blog}
                 index={index}
-                cardVisible={!!cardVisible[index]} // Pass visibility
+                cardVisible={!!cardVisible[index]}
               />
             </div>
           ))}
@@ -163,33 +158,59 @@ export default function OurBlog() {
 }
 
 function BlogCard({ blog, index, cardVisible }) {
+  const scrollCardRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollCardRef,
+    offset: ["start end", "center center", "end 0.25"],
+  });
+
+  const scaleTransform = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [0.5, 1, 0.8]
+  );
+
+  const scaleProgress = useSpring(scaleTransform, {
+    stiffness: 120,
+    damping: 50,
+  });
+
   return (
-    <div
-      className={`card h-100 blog-card ${cardVisible ? "animate" : ""}`}
+    <motion.div
+      ref={scrollCardRef}
       style={{
-        transitionDelay: cardVisible ? `${index * 0.1}s` : "0s",
+        scale: scaleProgress,
       }}
     >
-      <img
-        src={blog.image || "/placeholder.svg"}
-        className="card-img-top"
-        alt={blog.title}
-      />
-      <div className="card-body">
-        <div className="mb-2">
-          <span className="badge" style={{ background: `var(--bg-primary)` }}>
-            {blog.category}
-          </span>
+      <div
+        className="card blog-card"
+        // style={{
+        //   // transitionDelay: cardVisible ? `${index * 0.1}s` : "0s",
+        //   scale: scaleProgress,
+        // }}
+      >
+        <img
+          src={blog.image || "/placeholder.svg"}
+          className="card-img-top"
+          alt={blog.title}
+        />
+        <div className="card-body">
+          <div className="mb-2">
+            <span className="badge" style={{ background: `var(--bg-primary)` }}>
+              {blog.category}
+            </span>
+          </div>
+          <h5 className="card-title">{blog.title}</h5>
+          <p className="card-text">{blog.excerpt}</p>
+          <p className="card-text">
+            <small className="text-muted">
+              {new Date(blog.date).toLocaleDateString()}
+            </small>
+          </p>
+          <button className="btn ourBlog-card-readmore-btn">Read More</button>
         </div>
-        <h5 className="card-title">{blog.title}</h5>
-        <p className="card-text">{blog.excerpt}</p>
-        <p className="card-text">
-          <small className="text-muted">
-            {new Date(blog.date).toLocaleDateString()}
-          </small>
-        </p>
-        <button className="btn ourBlog-card-readmore-btn">Read More</button>
       </div>
-    </div>
+    </motion.div>
   );
 }

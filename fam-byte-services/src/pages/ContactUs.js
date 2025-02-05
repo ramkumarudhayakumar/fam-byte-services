@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles/ContactUs.css";
+import { motion } from "framer-motion";
 
 import axios from "axios";
 import Toast from "../components/Toast";
@@ -76,6 +77,29 @@ export default function ContactUs() {
             onClose={() => setToast(null)}
           />
         )}
+        {/* <div className="background">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="floating-shape"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                scale: Math.random() * 0.5 + 0.5,
+                rotate: Math.random() * 360,
+              }}
+              animate={{
+                y: [null, Math.random() * window.innerHeight],
+                rotate: [null, Math.random() * 360],
+                transition: {
+                  duration: Math.random() * 10 + 10,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                },
+              }}
+            />
+          ))}
+        </div> */}
         <section className="contact-hero-section min-vh-100 d-flex align-items-center pb-5">
           <div className="container text-center">
             <h1 className="display-3 my-4">
